@@ -2,10 +2,9 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "commonjs",
-    "outDir": "dist",
-    "strict": true,
+    "outDir": "electron-music-player/dist",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "strict": true,
     "jsx": "react-jsx"
   },
   "include": ["main.ts", "preload.ts", "src"]

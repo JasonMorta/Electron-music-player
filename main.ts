@@ -1,5 +1,10 @@
 import { app, BrowserWindow, dialog, ipcMain } from 'electron';
 import path from 'path';
+import fs from 'fs';
+
+const indexPath = path.join(__dirname, 'index.html');
+console.log('Trying to load:', indexPath);
+console.log('Exists:', fs.existsSync(indexPath));
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -19,7 +24,7 @@ function createWindow() {
   if (process.env.NODE_ENV === 'development') {
     win.loadURL('http://localhost:5173');
   } else {
-    win.loadFile(path.join(__dirname, 'index.html'));
+    win.loadFile(path.join(__dirname, '../dist/index.html'));
   }
 
   // Open DevTools automatically for debugging

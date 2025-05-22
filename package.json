@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "electron": "tsc && electron dist/main.js",
+    "electron": "tsc && electron electron-music-player/dist/main.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
