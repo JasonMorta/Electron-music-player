@@ -41,23 +41,20 @@ electron-music-player/
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/yourusername/electron-music-player.git
 cd electron-music-player
-pnpm install
+npm install
 ```
 
 ### 2. Development Preview in Browser
 
 ```bash
-pnpm run dev
+npm start
 ```
 
-Open browser at http://localhost:5173
-
-### 3. Run Electron with Built Files (Dev)
+### 3. Run Electron with auto reload on file changes
 
 ```bash
-pnpm run electron
+npx electronmon .
 ```
 
 This runs Electron and loads the built React frontend from Vite.
@@ -69,7 +66,7 @@ This runs Electron and loads the built React frontend from Vite.
 ### Full Build & Package
 
 ```bash
-pnpm run dist
+npm run dist
 ```
 
 This will:
@@ -130,47 +127,20 @@ This icon will appear in the `.exe` after build.
 
 ```json
 {
-  "name": "electron-musuic-player",
-  "author": "Your Name",
-  "description": "Simple Electron music player that plays local music files",
-  "version": "0.0.1",
-  "main": "electron-music-player/dist/main.js",
+  "name": "electron-music-player",
+  "version": "1.0.0",
+  "description": "Music player",
+  "main": "main.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "compile": "tsc",
-    "dist": "pnpm build && pnpm compile && electron-builder",
-    "electron": "tsc && electron electron-music-player/dist/main.js",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "start": "electron .",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "build": {
-    "appId": "com.yourname.musicplayer",
-    "productName": "MusicPlayer",
-    "directories": {
-      "buildResources": "assets",
-      "output": "release"
-    },
-    "files": [
-      "electron-musuic-player/dist/**/*",
-      "node_modules/**/*",
-      "package.json"
-    ],
-    "win": {
-      "target": "nsis"
-    },
-    "icon": "assets/icon.ico"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
+  "keywords": [],
+  "author": "John Doe",
+  "license": "MIT",
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "^3.9.0",
-    "electron": "^36.2.1",
-    "electron-builder": "^26.0.12",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "electron": "23.1.3"
   }
 }
 ```
@@ -196,8 +166,8 @@ If you ever need a clean rebuild:
 
 ```bash
 rm -rf dist release
-pnpm install
-pnpm run dist
+npm install
+npm run dist
 ```
 
 ---
